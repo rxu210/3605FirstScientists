@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">3605FirstScientists</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="map_key" translatable="false">AIzaSyCdBgWcPXpVBIAqsy-KJq0Ie4sa9WFDNg8</string>
 </resources>
