@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a3605firstscientists">
+    package="com.example.a3605firstscientists" >
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -16,20 +16,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.3605FirstScientists">
+        android:theme="@style/Theme.3605FirstScientists" >
+        <activity android:name=".MapActivity" >
+        </activity>
         <activity android:name=".AddActivity" />
-        <activity android:name=".LocationActivity"></activity>
+        <activity android:name=".LocationActivity" />
         <activity android:name=".LearnActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".GeocodeAddressIntentService"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

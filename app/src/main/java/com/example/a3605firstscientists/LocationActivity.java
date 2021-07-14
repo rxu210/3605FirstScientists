@@ -36,5 +36,16 @@ public class LocationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Method for handling Yes button to take user to map screen
+        btnYes = (findViewById(R.id.btnYes));
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LocationActivity.this, MapActivity.class);
+                intent.putExtra("From", "LocationActivity");
+                startActivity(intent);
+            }
+        });
     }
 }
