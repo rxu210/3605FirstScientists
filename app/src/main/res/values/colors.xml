@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="loginred">#E34A4A</color>
+    <color name="login">#E34A4A</color>
     <color name="red">#FF0000</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
