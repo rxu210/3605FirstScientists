@@ -8,6 +8,7 @@ import android.os.ResultReceiver;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -23,6 +24,7 @@ public class AddActivity extends AppCompatActivity {
     ProgressBar progressBar;
     TextView infoText;
     CheckBox checkBox;
+    Button btnSubmit;
 
     boolean fetchAddress;
     int fetchType = Constants.USE_ADDRESS_LOCATION;
@@ -46,6 +48,15 @@ public class AddActivity extends AppCompatActivity {
         checkBox = (CheckBox) findViewById(R.id.checkbox);
 
         mResultReceiver = new AddressResultReceiver(null);
+
+        // Method for handling Submit Location button
+        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSubmit();
+            }
+        });
     }
 
     public void onRadioButtonClicked(View view) {
@@ -75,6 +86,7 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
+    // Method for handling check coordinates button
     public void onButtonClicked(View view) {
         Intent intent = new Intent(this, GeocodeAddressIntentService.class);
         intent.putExtra(Constants.RECEIVER, mResultReceiver);
@@ -102,6 +114,9 @@ public class AddActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         Log.e(TAG, "Starting Service");
         startService(intent);
+
+        // Make submit button visible after user has checked coordinates
+        btnSubmit.setVisibility(View.VISIBLE);
     }
     // Method for saving user's manually submitted location
     public void onSubmit() {
@@ -127,7 +142,7 @@ public class AddActivity extends AppCompatActivity {
                         // Save user's temporary location to variables
                         tempLatitude = address.getLatitude();
                         tempLongitude = address.getLongitude();
-                        tempAddress = resultData.getString(Constants.RESULT_DATA_KEY);
+                        tempAddress = address.getLocality();
                         infoText.setText("Latitude: " + tempLatitude + "\n" +
                                 "Longitude: " + tempLongitude + "\n" +
                                 "Address: " + tempAddress);
