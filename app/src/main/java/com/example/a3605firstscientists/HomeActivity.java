@@ -18,9 +18,15 @@ import android.os.Looper;
 import android.os.ResultReceiver;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -29,7 +35,16 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class HomeActivity extends AppCompatActivity {
+
+    // Public variable of Australian Native Title Determinations
+    public static String listNTD;
 
     // Declare variables for receiving and storing user's current location
     FusedLocationProviderClient mFusedLocationClient;
@@ -43,6 +58,23 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Adding the data source for Australian Native Title Determinations
+        String urlNTD = "https://data.gov.au/geoserver/ballarat-skate-parks/wfs?request=GetFeature&typeName=ckan_c25bd314_c119_445a_aeca_3cf43fbbfdbb&outputFormat=json";
+        StringRequest request = new StringRequest(urlNTD, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String string) {
+                listNTD = string;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getApplicationContext(), "Some error occurred!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        RequestQueue rQueue = Volley.newRequestQueue(HomeActivity.this);
+        rQueue.add(request);
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mResultReceiver = new AddressResultReceiver(null);
