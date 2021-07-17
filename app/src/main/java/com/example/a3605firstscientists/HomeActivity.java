@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         // Adding the data source for Australian Native Title Determinations
-        String urlNTD = "https://data.gov.au/geoserver/ballarat-skate-parks/wfs?request=GetFeature&typeName=ckan_c25bd314_c119_445a_aeca_3cf43fbbfdbb&outputFormat=json";
+        String urlNTD = "http://www.rfs.nsw.gov.au/feeds/majorIncidents.json";
         StringRequest request = new StringRequest(urlNTD, new Response.Listener<String>() {
             @Override
             public void onResponse(String string) {
