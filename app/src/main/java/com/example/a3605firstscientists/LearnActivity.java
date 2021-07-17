@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class LearnActivity extends AppCompatActivity {
 
@@ -15,15 +16,16 @@ public class LearnActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
 
-        // Method for handling FNP button
-        Button btnFNP = findViewById(R.id.btnFNP);
-        btnFNP.setOnClickListener(new View.OnClickListener() {
+        // Method for handling Support Button
+        Button btnSupport = findViewById(R.id.btn_support);
+        btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse
-                        ("https://www.commonground.org.au/learn/aboriginal-or-indigenous"));
+                Intent intent = new Intent(LearnActivity.this, Donate.class);
+                intent.putExtra("From", "LearnActivity");
                 startActivity(intent);
             }
         });
+
     }
 }
