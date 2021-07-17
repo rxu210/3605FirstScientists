@@ -1,13 +1,14 @@
 package com.example.a3605firstscientists;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 public class LearnActivity extends AppCompatActivity {
 
@@ -17,12 +18,23 @@ public class LearnActivity extends AppCompatActivity {
         setContentView(R.layout.activity_learn);
 
         // Method for handling Support Button
-        Button btnSupport = findViewById(R.id.btn_support);
-        btnSupport.setOnClickListener(new View.OnClickListener() {
+        CardView cvSupport = findViewById(R.id.supportcard);
+        cvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LearnActivity.this, Donate.class);
                 intent.putExtra("From", "LearnActivity");
+                startActivity(intent);
+            }
+        });
+
+        // Method for handling Back button
+        ImageButton back = findViewById(R.id.btn_learnback);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LearnActivity.this, HomeActivity.class);
+                intent.putExtra("From", "Learn Activity");
                 startActivity(intent);
             }
         });

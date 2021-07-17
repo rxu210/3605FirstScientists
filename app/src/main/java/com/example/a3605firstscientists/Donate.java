@@ -33,7 +33,7 @@ public class Donate extends AppCompatActivity {
         });
 
         // Method for handling Back button
-        ImageButton back = findViewById(R.id.btn_back);
+        ImageButton back = findViewById(R.id.btn_donateback);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
