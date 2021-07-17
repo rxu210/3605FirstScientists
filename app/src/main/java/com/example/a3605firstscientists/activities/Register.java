@@ -12,12 +12,16 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.a3605firstscientists.Donate;
+import com.example.a3605firstscientists.LearnActivity;
 import com.example.a3605firstscientists.R;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -84,6 +88,17 @@ public class Register extends AppCompatActivity {
                     openGallery();
 
                 }
+            }
+        });
+
+        // Method for handling Sign In textview
+        TextView login = findViewById(R.id.tv_login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, Login.class);
+                intent.putExtra("From", "Donate");
+                startActivity(intent);
             }
         });
 

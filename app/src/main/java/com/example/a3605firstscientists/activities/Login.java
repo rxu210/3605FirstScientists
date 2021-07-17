@@ -4,13 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
-import android.media.ResourceBusyException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a3605firstscientists.R;
@@ -27,7 +26,7 @@ public class Login extends AppCompatActivity {
     private Button btnLogin;
     private FirebaseAuth mAuth;
     private Intent HomeActivity;
-    private ImageView loginPhoto;
+    private TextView register;
 
 
     @Override
@@ -40,8 +39,8 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         mAuth = FirebaseAuth.getInstance();
         HomeActivity = new Intent (this,com.example.a3605firstscientists.HomeActivity.class);
-        loginPhoto = findViewById(R.id.iv_loginPhoto);
-        loginPhoto.setOnClickListener(new View.OnClickListener() {
+        register = findViewById(R.id.tv_register);
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent register = new Intent (getApplicationContext(), Register.class);

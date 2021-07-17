@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="100dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:lineSpacingExtra="14sp"
@@ -56,7 +56,7 @@
         android:id="@+id/tv_remail"
         android:layout_width="315dp"
         android:layout_height="40dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/ic_red_person"
         android:ems="10"
@@ -86,12 +86,12 @@
 
     <ImageView
         android:id="@+id/im_circle"
-        android:layout_width="412dp"
-        android:layout_height="432dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_remail"
+        android:layout_width="411dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/loginshape" />
 
     <TextView
@@ -124,29 +124,33 @@
         android:id="@+id/tv_rmsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
         android:layout_marginTop="15dp"
         android:text="Already a member?"
         android:textColor="@color/black"
-        android:textSize="8sp"
-        app:layout_constraintStart_toStartOf="@+id/btn_register"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_register" />
 
     <TextView
         android:id="@+id/tv_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:text="Sign In"
         android:textColor="@color/red"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_register"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_rmsg"
         app:layout_constraintTop_toBottomOf="@+id/btn_register" />
 
     <ImageView
         android:id="@+id/iv_picture"
-        android:layout_width="90dp"
-        android:layout_height="94dp"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="134dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_remail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/im_circle"
+        app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
