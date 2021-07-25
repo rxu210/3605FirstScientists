@@ -33,23 +33,23 @@ public class Donate extends AppCompatActivity {
         });
 
         // Method for handling Back button
-        ImageButton back = findViewById(R.id.btn_donateback);
+        ImageButton back = findViewById(R.id.btn_ccback);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Donate.this, LearnActivity.class);
+                Intent intent = new Intent(Donate.this, UpdatedLearnActivity.class);
                 intent.putExtra("From", "Donate");
                 startActivity(intent);
             }
         });
 
-        TextView supportMessage = findViewById(R.id.tv_supportmsg);
+        TextView supportMessage = findViewById(R.id.tv_ccmsg);
         supportMessage.setText("We’re committed to working respectfully and in partnership with Australia’s First Nations peoples.\n" +
                 "\n" +
                 "We recognise the importance of maintaining and re-establishing connections to culture, country and kinship to supporting Aboriginal and Torres Strait Islander people’s health and wellbeing.\n" +
                 "\n" +
                 "We design programs with Aboriginal and Torres Strait Islander peoples: always aiming to empower people to pursue their goals, and to be culturally appropriate and accessible.");
-        YouTubePlayerView youTubePlayerView = findViewById(R.id.redcrossvideo);
+        YouTubePlayerView youTubePlayerView = findViewById(R.id.climatechangevideo);
         getLifecycle().addObserver(youTubePlayerView);
 
         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {

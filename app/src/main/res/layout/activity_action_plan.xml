@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActionPlanActivity">
+
+    <ImageButton
+        android:id="@+id/btn_apback"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_white_back" />
+
+    <ImageView
+        android:id="@+id/im_apbg"
+        android:layout_width="411dp"
+        android:layout_height="615dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/actionplanshape" />
+
+    <TextView
+        android:id="@+id/tv_aptitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:text="Our Action Plan"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_apmsg"
+        android:layout_width="340dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="10dp"
+        android:text="Visit the below pages to allow us to show you how Red Cross helps. Because together - with you - we make a difference when times are tough"
+        app:layout_constraintStart_toStartOf="@+id/tv_aptitle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_aptitle" />
+
+    <Button
+        android:id="@+id/btn_reconciliation"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/actionplanbuttons"
+        android:text="Commitment to Reconciliation"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_apmsg" />
+
+    <Button
+        android:id="@+id/btn_climatechange"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:background="@drawable/actionplanbuttons"
+        android:text="Climate Change - A Humanitarian Issue"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/btn_communities"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_reconciliation" />
+
+    <Button
+        android:id="@+id/btn_communities"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="75dp"
+        android:background="@drawable/actionplanbuttons"
+        android:text="Get Your Community Ready"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/im_apbg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

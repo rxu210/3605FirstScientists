@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context="Donate">
 
-    <Button
-        android:id="@+id/btn_donate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:lineSpacingExtra="14sp"
-        android:text="DONATE NOW"
-        android:textSize="12sp"
-        app:backgroundTint="@color/red"
-        app:cornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ccmsg" />
-
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/climatechangevideo"
         android:layout_width="match_parent"
@@ -31,12 +16,12 @@
 
     <TextView
         android:id="@+id/tv_cctitle"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Support Us"
+        android:text="Climate Change - A Humanitarian Issue"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -49,11 +34,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:padding="15sp"
-        android:text="Support Message"
+        android:text="Climate Change Message"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_cctitle" />
+
+    <TextView
+        android:id="@+id/tv_cclink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:padding="15sp"
+        android:text="Learn More: World Disasters Report"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ccback"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_ccback"

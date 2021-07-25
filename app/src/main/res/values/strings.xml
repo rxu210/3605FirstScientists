@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">3605FirstScientists</string>
+    <string name="app_name">Red Cross Reform</string>
     <string name="mapbox_access_token">pk.eyJ1Ijoicnh1MjEwIiwiYSI6ImNrcjNnYzc2dDEwbmcyeG55MHByMHR1dXEifQ.MAYVSImKkRT0YIfTF3mVAg</string>
     <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->

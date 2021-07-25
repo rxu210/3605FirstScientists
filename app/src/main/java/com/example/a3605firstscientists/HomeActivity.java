@@ -98,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
         btnLearn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, LearnActivity.class);
+                Intent intent = new Intent(HomeActivity.this, UpdatedLearnActivity.class);
                 intent.putExtra("From", "MainActivity");
                 startActivity(intent);
             }

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CommunitiesActivity">
+
+    <ImageButton
+        android:id="@+id/btn_commBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_white_back" />
+
+    <TextView
+        android:id="@+id/tv_commLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:padding="15sp"
+        android:text="Learn More: Climate-Ready Communities"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/btn_commBack"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_commMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="15sp"
+        android:text="Climate Change Message"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commTitle" />
+
+    <TextView
+        android:id="@+id/tv_commTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:text="Climate-Ready Communities"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_commstepone"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/communitiesbackground"
+        android:gravity="center"
+        android:text="1. Understand what climate change means for your community"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commMsg" />
+
+    <TextView
+        android:id="@+id/tv_commstepone2"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/communitiesbackground"
+        android:gravity="center"
+        android:text="2. Get ready to engage your community"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commstepone" />
+
+    <TextView
+        android:id="@+id/tv_commstepone3"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/communitiesbackground"
+        android:gravity="center"
+        android:text="3. Have a climate-ready conversation"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commstepone2" />
+
+    <TextView
+        android:id="@+id/tv_commstepone4"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/communitiesbackground"
+        android:gravity="center"
+        android:text="4. Identify your next steps"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commstepone3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
