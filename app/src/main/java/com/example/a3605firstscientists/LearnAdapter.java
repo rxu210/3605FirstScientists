@@ -1,5 +1,7 @@
 package com.example.a3605firstscientists;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +20,17 @@ public class LearnAdapter extends RecyclerView.Adapter<LearnAdapter.LearnViewHol
 
     private ArrayList<Learn> mLearns;
     private RecyclerViewClickListener mListener;
+    private Context context;
+    private OnItemClicked onClick;
+
+    public interface OnItemClicked {
+        void onItemClick(int position);
+    }
 
     // Add a constructor method for the LearnAdapter class
-    public LearnAdapter(ArrayList<Learn> learns) {
+    public LearnAdapter(Context context, ArrayList<Learn> learns) {
         mLearns = learns;
+        this.context = context;
     }
 
     // Implement a ClickListener interface
@@ -48,7 +57,15 @@ public class LearnAdapter extends RecyclerView.Adapter<LearnAdapter.LearnViewHol
         holder.message.setText(learn.getMessage());
         holder.moreMessage.setText(learn.getMoreMessage());
         holder.itemView.setTag(learn.getId());
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, StoriesActivity.class);
+                intent.putExtra("From", "MainActivity");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     // Return recyclerview list size equal to the number of card views
@@ -59,15 +76,15 @@ public class LearnAdapter extends RecyclerView.Adapter<LearnAdapter.LearnViewHol
 
 
     // Implement ViewHolder class for the adapter to hold each view and recycle
-    public class LearnViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class LearnViewHolder extends RecyclerView.ViewHolder {//implements View.OnClickListener {
         // Define the TextViews, ImageView, Listener
         public TextView title, message, moreMessage;
         public ImageView image;
-        private RecyclerViewClickListener listener;
+        //private RecyclerViewClickListener listener;
         public LearnViewHolder(@NonNull View itemView, RecyclerViewClickListener listener) {
             super(itemView);
-            this.listener = listener;
-            itemView.setOnClickListener(this);
+            //this.listener = listener;
+            //itemView.setOnClickListener(this);
             // Finding each Androids XML/UI element
             title = itemView.findViewById(R.id.cv_title);
             image = itemView.findViewById(R.id.cv_image);
@@ -75,10 +92,14 @@ public class LearnAdapter extends RecyclerView.Adapter<LearnAdapter.LearnViewHol
             moreMessage = itemView.findViewById(R.id.cv_moreMessage);
         }
 
-        @Override
-        public void onClick(View v) {
-            listener.onClick(v, (String) v.getTag());
-        }
+//        @Override
+//        public void onClick(View v) {
+//            listener.onClick(v, (String) v.getTag());
+//        }
     }
 
+
+    public void setOnClick(OnItemClicked onClick) {
+        this.onClick=onClick;
+    }
 }

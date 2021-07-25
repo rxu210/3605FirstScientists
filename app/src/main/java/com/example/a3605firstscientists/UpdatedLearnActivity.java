@@ -9,12 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class UpdatedLearnActivity extends AppCompatActivity {
+import java.util.List;
+
+public class UpdatedLearnActivity extends AppCompatActivity implements LearnAdapter.OnItemClicked {
 
     private static final String TAG = "Main Activity: called.";
     // Initialising recyclerview and adapter
     private RecyclerView mRecyclerView;
     private LearnAdapter mAdapter;
+    private List<Learn> learns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,25 +29,18 @@ public class UpdatedLearnActivity extends AppCompatActivity {
         // Make recyclerview more performant by making every item of the recyclerview have a
         // fixed size
         mRecyclerView.setHasFixedSize(true);
-
-        /*
-        // Implements onClickListener for when the recyclerview is clicked to navigate to the
-        // detail activity screen
-        MovieAdapter.RecyclerViewClickListener listener = new MovieAdapter.RecyclerViewClickListener() {
-            @Override
-            public void onClick(View view, String id) {
-                launchDetailActivity(id);
-            }
-        };
-
-         */
-
-        // Instantiate an adapter object
-        mAdapter = new LearnAdapter(Learn.getLearns());
-        // Set the adapter to the recycler view object
-        mRecyclerView.setAdapter(mAdapter);
         //Specify layout manager
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Instantiate an adapter object
+        mAdapter = new LearnAdapter(getApplicationContext(), Learn.getLearns());
+        // Set the adapter to the recycler view object
+        mRecyclerView.setAdapter(mAdapter);
+
+        // Implements onClickListener for when the recyclerview is clicked to navigate to the
+        // detail activity screen
+        mAdapter.setOnClick(UpdatedLearnActivity.this);
+
 
         /*
         private void launchDetailActivity(String message) {
@@ -70,4 +66,10 @@ public class UpdatedLearnActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent (UpdatedLearnActivity.this, StoriesActivity.class);
+        intent.putExtra("from", "LearnActivity");
+        startActivity(intent);
+    }
 }
