@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -68,8 +69,8 @@ public class UpdatedLearnActivity extends AppCompatActivity implements LearnAdap
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent (UpdatedLearnActivity.this, StoriesActivity.class);
-        intent.putExtra("from", "LearnActivity");
+        Intent intent = new Intent(UpdatedLearnActivity.this, StoriesActivity.class);
+        intent.putExtra("from", "UpdatedLearnActivity");
         startActivity(intent);
     }
 }
