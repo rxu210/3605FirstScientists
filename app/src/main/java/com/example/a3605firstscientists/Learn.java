@@ -40,7 +40,7 @@ public class Learn {
 
     public void setImage(Integer image) { this.image =image; }
 
-    // Create an array list containing data for each of the 10 movies
+    // Create an array list containing data
     public static ArrayList<Learn> getLearns() {
         ArrayList<Learn> learn = new ArrayList<>();
         learn.add(new Learn("1", "Our Action Plan", "It's time for a climate-ready conversation", "LEARN MORE", R.drawable.climateimage));
@@ -51,9 +51,9 @@ public class Learn {
 
     public static Learn getTitle(String id) {
         // Implement a method that returns one cardview based on it's id
-        // Get the list of the movies from the Movie java class
+        // Get the list of the cardviews from the java class
         ArrayList<Learn> learns = Learn.getLearns();
-        // Loop through the movies and compare the parameter(id) with the movie of each row
+        // Loop through the cardviews and compare the parameter(id) with the cardview of each row
         for(final Learn learn : learns) {
             if(learn.getId().equals(id)){
                 return learn;

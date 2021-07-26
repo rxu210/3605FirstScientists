@@ -1,5 +1,6 @@
 package com.example.a3605firstscientists;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -60,10 +61,22 @@ public class LearnAdapter extends RecyclerView.Adapter<LearnAdapter.LearnViewHol
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, StoriesActivity.class);
-                intent.putExtra("From", "MainActivity");
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                if (position == 0) {
+                    Intent intent = new Intent(context, ActionPlanActivity.class);
+                    intent.putExtra("From", "UpdatedLearnActivity");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                } else if (position == 1){
+                    Intent intent = new Intent(context, StoriesActivity.class);
+                    intent.putExtra("From", "UpdatedLearnActivity");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                } else if (position == 2){
+                    Intent intent = new Intent(context, Donate.class);
+                    intent.putExtra("From", "UpdatedLearnActivity");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
             }
         });
     }
@@ -97,7 +110,6 @@ public class LearnAdapter extends RecyclerView.Adapter<LearnAdapter.LearnViewHol
 //            listener.onClick(v, (String) v.getTag());
 //        }
     }
-
 
     public void setOnClick(OnItemClicked onClick) {
         this.onClick=onClick;
