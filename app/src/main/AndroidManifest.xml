@@ -27,8 +27,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.Register" />
+        <activity android:name=".ActionPlanActivity" />
+        <activity android:name=".ClimateActivity" />
+        <activity android:name=".ReconciliationActivity" />
+        <activity android:name=".StoriesActivity" />
+        <activity android:name=".CommunitiesActivity" />
         <activity android:name=".Donate" />
         <activity android:name=".MapActivity" />
+        <activity android:name=".UpdatedLearnActivity" />
         <activity android:name=".AddActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".LearnActivity" />
