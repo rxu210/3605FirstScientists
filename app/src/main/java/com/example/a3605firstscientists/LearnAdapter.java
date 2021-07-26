@@ -1,6 +1,5 @@
 package com.example.a3605firstscientists;
 
-import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
