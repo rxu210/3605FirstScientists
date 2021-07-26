@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,26 +18,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.3605FirstScientists">
-        <activity android:name=".StoriesActivity"></activity>
-        <activity android:name=".ClimateActivity" />
-        <activity android:name=".CommunitiesActivity" />
-        <activity android:name=".ReconciliationActivity" />
-        <activity android:name=".ActionPlanActivity" />
-        <activity android:name=".UpdatedLearnActivity" />
-        <activity android:name=".activities.Login" />
-        <activity android:name=".activities.Register" />
-        <activity android:name=".Donate" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".AddActivity" />
-        <activity android:name=".LocationActivity" />
-        <activity android:name=".LearnActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".activities.Post"></activity>
+        <activity android:name=".activities.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.Register" />
+        <activity android:name=".Donate" />
+        <activity android:name=".MapActivity" />
+        <activity android:name=".AddActivity" />
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".LearnActivity" />
+        <activity android:name=".HomeActivity"></activity>
 
         <service
             android:name=".GeocodeAddressIntentService"
