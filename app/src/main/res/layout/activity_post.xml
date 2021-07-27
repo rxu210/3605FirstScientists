@@ -6,43 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activities.Post">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="70dp"
-        android:layout_height="81dp"
-        tools:layout_editor_absoluteX="325dp"
-        tools:layout_editor_absoluteY="59dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="152dp"
-        android:layout_height="50dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="59dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="384dp"
-        android:layout_height="163dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="168dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="272dp"
-        android:layout_height="194dp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="359dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/button"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="632dp" />
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="36dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_create_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
