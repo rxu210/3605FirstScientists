@@ -2,62 +2,115 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="350dp"
+    android:layout_height="600dp"
+    android:layout_marginTop="60dp"
+    android:layout_gravity="center"
+    android:background="@color/grey"
+    android:orientation="vertical"
+    android:padding="5dp">
 
-    <ImageView
-        android:id="@+id/popup_user_image"
-        android:layout_width="43dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="24dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_popupprofile"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="75dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/popup_title"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/popup_user_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+    </androidx.cardview.widget.CardView>
 
     <EditText
         android:id="@+id/popup_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/postscreentextviews"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Title"
-        app:layout_constraintEnd_toStartOf="@+id/popup_user_image"
-        app:layout_constraintHorizontal_bias="0.104"
+        android:padding="5dp"
+        android:text="Insert Title"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cv_popupprofile" />
 
     <EditText
-        android:id="@+id/popup_description"
-        android:layout_width="367dp"
-        android:layout_height="49dp"
+        android:id="@+id/popup_location"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/postscreentextviews"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Description"
-        app:layout_constraintEnd_toStartOf="@+id/popup_user_image"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:padding="5dp"
+        android:text="Insert Location"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popup_title" />
 
-    <ImageView
-        android:id="@+id/popup_img"
-        android:layout_width="0dp"
-        android:layout_height="225dp"
-        android:scaleType="centerCrop"
+    <EditText
+        android:id="@+id/popup_description"
+        android:layout_width="300dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/postscreentextviews"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:text="Insert Description"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popup_description"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toBottomOf="@+id/popup_location" />
 
-    <ImageView
-        android:id="@+id/popup_add"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_popupimage"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="3dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_create_24" />
+        app:layout_constraintTop_toBottomOf="@+id/popup_description" >
+
+        <ImageView
+            android:id="@+id/popup_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/popupimage"
+            android:scaleType="fitXY" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_popupadd"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/red"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_popupimage">
+
+        <ImageView
+            android:id="@+id/popup_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_add" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
