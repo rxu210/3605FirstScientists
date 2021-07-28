@@ -123,6 +123,9 @@ public class AddActivity extends AppCompatActivity {
         HomeActivity.latitude = tempLatitude;
         HomeActivity.longitude = tempLongitude;
         HomeActivity.userAddress = tempAddress;
+        Intent intent = new Intent(AddActivity.this, MapActivity.class);
+        intent.putExtra("from", "AddActivity");
+        startActivity(intent);
     }
 
     class AddressResultReceiver extends ResultReceiver {

@@ -20,11 +20,11 @@ public class LocationActivity extends AppCompatActivity {
 
         // Update TextViews to display user's location, retrieved in HomeActivity
         tvLocation = (findViewById(R.id.tvLocation));
-        tvLocation.setText("Is your approximate location " + HomeActivity.userAddress + "?");
+        tvLocation.setText("Current suburb: " + HomeActivity.userAddress);
 
         tvCoordinates = (findViewById(R.id.tvCoordinates));
-        tvCoordinates.setText("Are your current coordinates approximately " + HomeActivity.latitude
-         + " by " + HomeActivity.longitude + "?");
+        tvCoordinates.setText("Current coordinates: " + HomeActivity.latitude
+         + " by " + HomeActivity.longitude);
 
         // Method for handling No button to manually add new location
         btnNo = (findViewById(R.id.btnNo));

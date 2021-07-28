@@ -5,13 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -24,14 +23,7 @@ import com.mapbox.mapboxsdk.style.layers.LineLayer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.light.Position;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
-import com.mapbox.mapboxsdk.style.sources.Source;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
@@ -78,14 +70,26 @@ public class MapActivity extends AppCompatActivity {
                     public void onStyleLoaded(@NonNull Style style) {
 
                         // Map is set up and the style has loaded. Now you can add data or make other map adjustments
+                        CameraPosition position = new CameraPosition.Builder()
+                                .target(new LatLng(HomeActivity.latitude, HomeActivity.longitude))
+                                .zoom(10)
+                                .bearing(0)
+                                .tilt(0)
+                                .build();
 
+                        mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 7000);
 
+                        mapboxMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(HomeActivity.latitude, HomeActivity.longitude))
+                        .title("Your location"));
                     }
                 });
 
             }
         });
     }
+
+
     @Override
     protected void onStart() {
         super.onStart();
