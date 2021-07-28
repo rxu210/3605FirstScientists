@@ -42,19 +42,6 @@ public class UpdatedLearnActivity extends AppCompatActivity implements LearnAdap
         // detail activity screen
         mAdapter.setOnClick(UpdatedLearnActivity.this);
 
-
-        /*
-        private void launchDetailActivity(String message) {
-            // Use an explicit intent to Launch DetailActivity
-            Intent intent = new Intent(this, DetailActivity.class);
-            // Add extra message to the intent (otherwise it wont pass it)
-            intent.putExtra(DetailActivity.INTENT_MESSAGE, message);
-            // Start DetailActivity
-            startActivity(intent);
-        }
-
-         */
-
         // Method for handling Back button
         ImageButton back = findViewById(R.id.btn_learnback2);
         back.setOnClickListener(new View.OnClickListener() {

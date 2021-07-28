@@ -74,6 +74,8 @@ public class Register extends AppCompatActivity {
         userPassword2 = findViewById(R.id.tv_rpassword2);
         regButton = findViewById(R.id.btn_register);
         userPhoto = findViewById(R.id.iv_picture);
+
+
         userPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,11 +83,13 @@ public class Register extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= 22) {
 
                     checkAndRequestForPermission();
+                    showMessage("Please Verify all fields are entered properly");
                 }
 
                 else{
 
                     openGallery();
+
 
                 }
             }
@@ -123,8 +127,6 @@ public class Register extends AppCompatActivity {
                     showMessage("Please Verify all fields are entered properly");
 
                     regButton.setVisibility(View.VISIBLE);
-
-
 
                 }
 
