@@ -69,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getApplicationContext(), "Some error occurred!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Currently 0 reported NSW Rural fires", Toast.LENGTH_SHORT).show();
             }
         });
 
