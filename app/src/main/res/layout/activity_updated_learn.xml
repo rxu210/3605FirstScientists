@@ -49,7 +49,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cardList"
             android:layout_width="match_parent"
-            android:layout_height="515dp"
+            android:layout_height="530dp"
             android:background="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
