@@ -2,6 +2,8 @@ package com.example.a3605firstscientists.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.os.Bundle;
@@ -19,10 +21,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class PostDetail extends AppCompatActivity {
@@ -35,6 +42,10 @@ public class PostDetail extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     FirebaseDatabase firebaseDatabase;
+    RecyclerView RvComment;
+    CommentAdapter commentAdapter;
+    List<Comment> listComment;
+    static String COMMENT_KEY = "Comment";
 
 
 
@@ -43,6 +54,7 @@ public class PostDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_detail);
 
+        RvComment = findViewById(R.id.rv_comment);
         imgPost =findViewById(R.id.post_detail_img);
         imgUserPost = findViewById(R.id.post_detail_user_img);
         imgCurrentUser = findViewById(R.id.post_detail_currentuser_img);
@@ -66,7 +78,7 @@ public class PostDetail extends AppCompatActivity {
 
 
                 btnAddComment.setVisibility(View.INVISIBLE);
-                DatabaseReference commentReference = firebaseDatabase.getReference("Comment").child(PostKey).push();
+                DatabaseReference commentReference = firebaseDatabase.getReference(COMMENT_KEY).child(PostKey).push();
                 String comment_content = editTextComment.getText().toString();
                 String uid = firebaseUser.getUid();
                 String uname = firebaseUser.getDisplayName();
@@ -124,7 +136,7 @@ public class PostDetail extends AppCompatActivity {
         txtPostDateName.setText(date);
 
 
-
+        iniRvComment();
 
 
 
@@ -147,6 +159,39 @@ public class PostDetail extends AppCompatActivity {
         calendar.setTimeInMillis(time);
         String date = DateFormat.format("dd-MM-yyyy",calendar).toString();
         return date;
+
+
+    }
+
+    private void iniRvComment() {
+
+        RvComment.setLayoutManager(new LinearLayoutManager(this));
+
+        DatabaseReference commentRef = firebaseDatabase.getReference(COMMENT_KEY).child(PostKey);
+        commentRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listComment = new ArrayList<>();
+                for (DataSnapshot snap:dataSnapshot.getChildren()) {
+
+                    Comment comment = snap.getValue(Comment.class);
+                    listComment.add(comment) ;
+
+                }
+
+                commentAdapter = new CommentAdapter(getApplicationContext(),listComment);
+                RvComment.setAdapter(commentAdapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
 
 
     }
