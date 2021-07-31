@@ -70,6 +70,7 @@ public class UpdatedLearnActivity extends AppCompatActivity implements LearnAdap
                 switch (item.getItemId()) {
                     case R.id.ic_home:
                         Intent intent1 = new Intent(UpdatedLearnActivity.this, HomeActivity.class);
+                        startActivity(intent1);
                         break;
 
                     case R.id.ic_learn:
