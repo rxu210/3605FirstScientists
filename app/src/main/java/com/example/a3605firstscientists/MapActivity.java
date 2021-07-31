@@ -3,9 +3,13 @@ package com.example.a3605firstscientists;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -87,6 +91,40 @@ public class MapActivity extends AppCompatActivity {
 
             }
         });
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.ic_home:
+                        Intent intent1 = new Intent(MapActivity.this, HomeActivity.class);;
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_learn:
+                        Intent intent2 = new Intent(MapActivity.this, UpdatedLearnActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_map:
+                        break;
+
+                    /*case R.id.ic_blog:
+                        Intent intent3 = new Intent(MapActivity.this, BlogActivity.class);
+                        startActivity(intent3);
+                        break;*/
+                }
+                return false;
+            }
+        });
+
     }
 
 

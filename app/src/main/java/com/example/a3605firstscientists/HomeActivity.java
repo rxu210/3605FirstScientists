@@ -17,6 +17,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.ResultReceiver;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,6 +36,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -112,6 +115,38 @@ public class HomeActivity extends AppCompatActivity {
                 getAddress();
             }
         }, 1000);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.ic_home:
+                        break;
+
+                    case R.id.ic_learn:
+                        Intent intent1 = new Intent(HomeActivity.this, UpdatedLearnActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_map:
+                        Intent intent2 = new Intent(HomeActivity.this, MapActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    /*case R.id.ic_blog:
+                        Intent intent3 = new Intent(HomeActivity.this, BlogActivity.class);
+                        startActivity(intent3);
+                        break;*/
+                }
+                    return false;
+            }
+        });
 
     }
 

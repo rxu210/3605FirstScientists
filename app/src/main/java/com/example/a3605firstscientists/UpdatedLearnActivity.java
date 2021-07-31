@@ -1,14 +1,19 @@
 package com.example.a3605firstscientists;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -52,6 +57,38 @@ public class UpdatedLearnActivity extends AppCompatActivity implements LearnAdap
                 startActivity(intent);
             }
         });
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.ic_home:
+                        Intent intent1 = new Intent(UpdatedLearnActivity.this, HomeActivity.class);
+                        break;
+
+                    case R.id.ic_learn:
+                        break;
+
+                    case R.id.ic_map:
+                        Intent intent2 = new Intent(UpdatedLearnActivity.this, MapActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    /*case R.id.ic_blog:
+                        Intent intent3 = new Intent(UpdatedLearnActivity.this, BlogActivity.class);
+                        startActivity(intent3);
+                        break;*/
+                }
+                return false;
+            }
+        });
+
     }
 
     @Override

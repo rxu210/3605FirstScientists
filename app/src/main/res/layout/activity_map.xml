@@ -11,5 +11,28 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"></com.mapbox.mapboxsdk.maps.MapView>
 
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom">
+
+      <com.google.android.material.bottomnavigation.BottomNavigationView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/bottom_nav_bar"
+          android:background="@drawable/bottom_nav"
+          app:menu="@menu/bottom_nav_menu">
+
+      </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </RelativeLayout>
+
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
   </androidx.constraintlayout.widget.ConstraintLayout>
