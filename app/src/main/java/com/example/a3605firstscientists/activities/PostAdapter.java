@@ -81,8 +81,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     Intent postDetailActivity = new Intent(mContext,PostDetail.class);
+                    postDetailActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     int position = getAdapterPosition();
 
                     postDetailActivity.putExtra("title",mData.get(position).getTitle());

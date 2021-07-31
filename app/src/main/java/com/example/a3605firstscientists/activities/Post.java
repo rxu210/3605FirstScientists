@@ -88,7 +88,6 @@ public class Post extends AppCompatActivity {
     private Uri pickedImgUri = null;
 
 
-
     PostAdapter postAdapter;
     RecyclerView postRecyclerView;
     FirebaseDatabase firebaseDatabase;
@@ -119,9 +118,6 @@ public class Post extends AppCompatActivity {
         });
 
 
-
-
-
         postRecyclerView = findViewById(R.id.postRV);
 
 
@@ -134,33 +130,37 @@ public class Post extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Posts");
 
-        postingList = new ArrayList<>();
-        postAdapter = new PostAdapter(this,postingList);
 
+
+
+
+
+        iniRv();
 
     }
 
-    @Override
-    public void onStart(){
-        super.onStart();
 
+    public void iniRv(){
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                postingList = new ArrayList<>();
 
                 for (DataSnapshot postsnap: snapshot.getChildren()){
+
 
                     Posting post = postsnap.getValue(Posting.class);
                     postingList.add(post);
 
+
+
                 }
 
+                postAdapter = new PostAdapter(getApplicationContext(),postingList);
 
                 postRecyclerView.setAdapter(postAdapter);
-                postAdapter.notifyDataSetChanged();
 
 
             }
