@@ -44,7 +44,7 @@ public class Learn {
     public static ArrayList<Learn> getLearns() {
         ArrayList<Learn> learn = new ArrayList<>();
         learn.add(new Learn("1", "Our Action Plan", "It's time for a climate-ready conversation", "LEARN MORE", R.drawable.climateimage));
-        learn.add(new Learn("2", "Hear Our Stories", "The power of connecting with community and country", "LEARN MORE", R.drawable.storiesimage));
+        learn.add(new Learn("2", "Hear Our Voices", "The power of connecting with community and country", "LEARN MORE", R.drawable.storiesimage));
         learn.add(new Learn("3", "Support Us", "Humanity in action. And we're so grateful", "LEARN MORE", R.drawable.supportimage));
         return learn;
     }

@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3605FirstScientists">
         <activity android:name=".activities.Blogs"></activity>
-        <activity android:name=".activities.Post">
+        <activity android:name=".UpdatedLearnActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +35,7 @@
         <activity android:name=".CommunitiesActivity" />
         <activity android:name=".Donate" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".UpdatedLearnActivity" />
+        <activity android:name=".activities.Post" />
         <activity android:name=".AddActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".LearnActivity" />
