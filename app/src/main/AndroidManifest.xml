@@ -18,13 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.3605FirstScientists">
-        <activity android:name=".activities.Blogs"></activity>
+        <activity android:name=".activities.PostDetail"></activity>
         <activity android:name=".UpdatedLearnActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activities.Login"></activity>
         <activity android:name=".activities.Register" />
@@ -35,11 +31,27 @@
         <activity android:name=".CommunitiesActivity" />
         <activity android:name=".Donate" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".activities.Post" />
+        <activity android:name=".activities.Post">
+
+
+
+
+
+        </activity>
+
+
+
         <activity android:name=".AddActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".LearnActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".GeocodeAddressIntentService"

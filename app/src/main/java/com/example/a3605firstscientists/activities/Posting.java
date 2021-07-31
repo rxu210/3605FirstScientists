@@ -8,6 +8,7 @@ public class Posting {
 
     private String postKey;
     private String title;
+    private String location;
     private String description;
     private String picture;
     private String userId;
@@ -15,8 +16,9 @@ public class Posting {
     private Object timeStamp;
 
 
-    public Posting(String title, String description, String picture, String userId, String userPhoto) {
+    public Posting(String title, String location, String description, String picture, String userId, String userPhoto) {
         this.title = title;
+        this.location = location;
         this.description = description;
         this.picture = picture;
         this.userId = userId;
@@ -26,7 +28,6 @@ public class Posting {
 
 
     public Posting() {
-
 
     }
 
@@ -42,6 +43,8 @@ public class Posting {
     public String getTitle() {
         return title;
     }
+
+    public String getLocation() {return location;}
 
     public String getDescription() {
         return description;
@@ -66,6 +69,8 @@ public class Posting {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public void setLocation(String location){this.location = location;}
 
     public void setDescription(String description) {
         this.description = description;

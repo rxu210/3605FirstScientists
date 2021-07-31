@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.a3605firstscientists.activities.Post;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
@@ -20,12 +21,8 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
 
-import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.FeatureCollection;
-import com.mapbox.geojson.Point;
-import com.mapbox.mapboxsdk.style.layers.LineLayer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
-import com.mapbox.mapboxsdk.style.light.Position;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
 
@@ -116,10 +113,10 @@ public class MapActivity extends AppCompatActivity {
                     case R.id.ic_map:
                         break;
 
-                    /*case R.id.ic_blog:
-                        Intent intent3 = new Intent(MapActivity.this, BlogActivity.class);
+                    case R.id.ic_blog:
+                        Intent intent3 = new Intent(MapActivity.this, Post.class);
                         startActivity(intent3);
-                        break;*/
+                        break;
                 }
                 return false;
             }

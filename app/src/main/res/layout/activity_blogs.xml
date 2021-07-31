@@ -3,30 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="250dp"
     tools:context=".activities.Blogs">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/row_post_profile_img"
+        android:layout_width="57dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <RelativeLayout
-            android:id="@+id/bottom_bar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom">
+    <TextView
+        android:id="@+id/row_post_title"
+        android:layout_width="286dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Hello"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/bottom_nav_bar"
-                android:background="@drawable/bottom_nav"
-                app:menu="@menu/bottom_nav_menu">
+    <ImageView
+        android:id="@+id/row_post_img"
+        android:layout_width="411dp"
+        android:layout_height="168dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
-        </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/bottom_bar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="bottom">-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:id="@+id/bottom_nav_bar"-->
+<!--                android:background="@drawable/bottom_nav"-->
+<!--                app:menu="@menu/bottom_nav_menu">-->
+
+<!--            </com.google.android.material.bottomnavigation.BottomNavigationView>-->
+
+<!--        </RelativeLayout>-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

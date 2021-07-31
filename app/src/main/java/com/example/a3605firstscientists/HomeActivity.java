@@ -20,7 +20,6 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -29,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.a3605firstscientists.activities.Post;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -37,12 +37,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -139,10 +133,10 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent2);
                         break;
 
-                    /*case R.id.ic_blog:
-                        Intent intent3 = new Intent(HomeActivity.this, BlogActivity.class);
+                    case R.id.ic_blog:
+                        Intent intent3 = new Intent(HomeActivity.this, Post.class);
                         startActivity(intent3);
-                        break;*/
+                        break;
                 }
                     return false;
             }

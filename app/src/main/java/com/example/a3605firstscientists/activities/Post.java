@@ -46,8 +46,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -57,12 +60,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.w3c.dom.Text;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Post extends AppCompatActivity {
@@ -76,8 +84,17 @@ public class Post extends AppCompatActivity {
     Dialog popAddPost;
 
     ImageView popupUserImage, popupPostImage,popupAddBtn;
-    TextView popupTitle, popupDescription;
+    TextView popupTitle, popupLocation, popupDescription;
     private Uri pickedImgUri = null;
+
+
+
+    PostAdapter postAdapter;
+    RecyclerView postRecyclerView;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    List<Posting> postingList;
+
 
 
     @Override
@@ -103,9 +120,60 @@ public class Post extends AppCompatActivity {
 
 
 
+
+
+        postRecyclerView = findViewById(R.id.postRV);
+
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        postRecyclerView.setLayoutManager(layoutManager);
+
+        postRecyclerView.setHasFixedSize(true);
+        postRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Posts");
+
+        postingList = new ArrayList<>();
+        postAdapter = new PostAdapter(this,postingList);
+
+
     }
 
+    @Override
+    public void onStart(){
+        super.onStart();
 
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                for (DataSnapshot postsnap: snapshot.getChildren()){
+
+                    Posting post = postsnap.getValue(Posting.class);
+                    postingList.add(post);
+
+                }
+
+
+                postRecyclerView.setAdapter(postAdapter);
+                postAdapter.notifyDataSetChanged();
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+    }
 
     private void setupPopupImageClick() {
 
@@ -118,7 +186,6 @@ public class Post extends AppCompatActivity {
             }
         });
     }
-
 
     private void checkAndRequestForPermission() {
 
@@ -168,9 +235,6 @@ public class Post extends AppCompatActivity {
 
     }
 
-
-
-
     private void iniPopup() {
 
         popAddPost = new Dialog(this);
@@ -183,6 +247,7 @@ public class Post extends AppCompatActivity {
         popupUserImage = popAddPost.findViewById(R.id.popup_user_image);
         popupPostImage = popAddPost.findViewById(R.id.popup_img);
         popupTitle = popAddPost.findViewById(R.id.popup_title);
+        popupLocation = popAddPost.findViewById(R.id.popup_location);
         popupDescription = popAddPost.findViewById(R.id.popup_description);
         popupAddBtn = popAddPost.findViewById(R.id.popup_add);
 
@@ -194,6 +259,7 @@ public class Post extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (!popupTitle.getText().toString().isEmpty()
+                        && !popupLocation.getText().toString().isEmpty()
                 && !popupDescription.getText().toString().isEmpty()
                         && pickedImgUri != null) {
 
@@ -211,6 +277,7 @@ public class Post extends AppCompatActivity {
 
 
                                 Posting posting = new Posting(popupTitle.getText().toString(),
+                                        popupLocation.getText().toString(),
                                         popupDescription.getText().toString(),
                                         imageDownloadLink,
                                         currentUser.getUid(),
