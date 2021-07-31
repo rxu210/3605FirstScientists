@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.a3605firstscientists.activities.Post;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -81,10 +82,10 @@ public class UpdatedLearnActivity extends AppCompatActivity implements LearnAdap
                         startActivity(intent2);
                         break;
 
-                    /*case R.id.ic_blog:
-                        Intent intent3 = new Intent(UpdatedLearnActivity.this, BlogActivity.class);
+                    case R.id.ic_blog:
+                        Intent intent3 = new Intent(UpdatedLearnActivity.this, Post.class);
                         startActivity(intent3);
-                        break;*/
+                        break;
                 }
                 return false;
             }

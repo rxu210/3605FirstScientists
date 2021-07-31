@@ -13,12 +13,18 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
+import com.example.a3605firstscientists.HomeActivity;
+import com.example.a3605firstscientists.MapActivity;
 import com.example.a3605firstscientists.R;
+import com.example.a3605firstscientists.UpdatedLearnActivity;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -130,12 +136,39 @@ public class Post extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Posts");
 
-
-
-
-
-
         iniRv();
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.ic_home:
+                        Intent intent1 = new Intent(Post.this, HomeActivity.class);;
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_learn:
+                        Intent intent2 = new Intent(Post.this, UpdatedLearnActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_map:
+                        Intent intent3 = new Intent(Post.this, MapActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_blog:
+                        break;
+                }
+                return false;
+            }
+        });
 
     }
 
