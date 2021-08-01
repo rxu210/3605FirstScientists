@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -136,6 +137,7 @@ public class PostDetail extends AppCompatActivity {
 
         String postDescription = getIntent().getExtras().getString("description");
         txtPostDesc.setText(postDescription);
+        txtPostDesc.setMovementMethod(new ScrollingMovementMethod());
 
 
         firebaseAuth = FirebaseAuth.getInstance();
