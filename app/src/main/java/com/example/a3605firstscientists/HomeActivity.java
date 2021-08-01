@@ -120,8 +120,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.ic_home:
-                        break;
+                    /*case R.id.ic_home:
+                        break;*/
 
                     case R.id.ic_learn:
                         Intent intent1 = new Intent(HomeActivity.this, UpdatedLearnActivity.class);

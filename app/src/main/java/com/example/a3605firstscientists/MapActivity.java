@@ -94,17 +94,17 @@ public class MapActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
 
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(2);
+        MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.ic_home:
+                    /*case R.id.ic_home:
                         Intent intent1 = new Intent(MapActivity.this, HomeActivity.class);;
                         startActivity(intent1);
-                        break;
+                        break;*/
 
                     case R.id.ic_learn:
                         Intent intent2 = new Intent(MapActivity.this, UpdatedLearnActivity.class);
