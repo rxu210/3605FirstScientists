@@ -6,17 +6,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.a3605firstscientists.ActionPlanActivity;
 import com.example.a3605firstscientists.R;
+import com.example.a3605firstscientists.ReconciliationActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,6 +75,17 @@ public class PostDetail extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
+
+        // Method for handling Back button
+        ImageButton back = findViewById(R.id.btn_postback);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PostDetail.this, Post.class);
+                intent.putExtra("From", "PostDetail");
+                startActivity(intent);
+            }
+        });
 
         btnAddComment.setOnClickListener(new View.OnClickListener() {
             @Override

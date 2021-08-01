@@ -8,6 +8,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageButton
+        android:id="@+id/btn_postback"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_white_back" />
+
     <ImageView
         android:id="@+id/post_detail_img"
         android:layout_width="412dp"
@@ -84,35 +95,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_detail_date_name" />
 
-    <ImageView
-        android:id="@+id/post_detail_currentuser_img"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_detail_desc"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <EditText
 
-        android:hint="Write Comment"
         android:id="@+id/post_detail_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Write Comment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/post_detail_currentuser_img"
-        app:layout_constraintStart_toEndOf="@+id/post_detail_currentuser_img"
-        app:layout_constraintTop_toTopOf="@+id/post_detail_currentuser_img" />
+        app:layout_constraintStart_toEndOf="@+id/cv_post_detail_currentuser_img"
+        app:layout_constraintTop_toBottomOf="@+id/post_detail_desc" />
 
     <Button
         android:id="@+id/post_detail_add_comment_btn"
-        android:layout_width="76dp"
-        android:layout_height="56dp"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edittext_background"
@@ -124,41 +123,62 @@
         app:layout_constraintTop_toTopOf="@+id/post_detail_comment"
         app:layout_constraintVertical_bias="0.529" />
 
-    <ImageView
-        android:id="@+id/post_detail_user_img"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/post_detail_date_name"
-        app:layout_constraintStart_toEndOf="@+id/post_detail_date_name"
-        app:layout_constraintTop_toTopOf="@+id/post_detail_date_name"
-        tools:srcCompat="@tools:sample/avatars" />
-
 
     <TextView
         android:id="@+id/post_detail_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="90dp"
         android:layout_marginBottom="13dp"
         android:text="Location"
         app:layout_constraintBottom_toTopOf="@+id/post_detail_desc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/post_detail_user_img"
+        app:layout_constraintStart_toEndOf="@+id/cv_post_detail_user_img"
         app:layout_constraintTop_toBottomOf="@+id/view" />
-
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_comment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_detail_comment"  />
+        app:layout_constraintTop_toBottomOf="@+id/post_detail_comment" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_post_detail_user_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/post_detail_date_name"
+        app:layout_constraintStart_toEndOf="@+id/post_detail_date_name"
+        app:layout_constraintTop_toTopOf="@+id/post_detail_date_name">
+
+        <ImageView
+            android:id="@+id/post_detail_user_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_post_detail_currentuser_img"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_detail_desc">
+
+        <ImageView
+            android:id="@+id/post_detail_currentuser_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
