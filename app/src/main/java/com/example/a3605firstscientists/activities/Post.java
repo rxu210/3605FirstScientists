@@ -94,7 +94,6 @@ public class Post extends AppCompatActivity {
     TextView popupTitle, popupLocation, popupDescription;
     private Uri pickedImgUri = null;
 
-
     PostAdapter postAdapter;
     RecyclerView postRecyclerView;
     FirebaseDatabase firebaseDatabase;
