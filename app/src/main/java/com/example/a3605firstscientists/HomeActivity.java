@@ -40,8 +40,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    // Public variable of Australian Native Title Determinations
-    public static String listNTD;
+    // Public variable of current fires in rural NSW
+    public static String listFires;
 
     // Declare variables for receiving and storing user's current location
     FusedLocationProviderClient mFusedLocationClient;
@@ -56,12 +56,12 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Adding the data source for Australian Native Title Determinations
+        // Adding the data source for current fires in rural NSW
         String urlNTD = "http://www.rfs.nsw.gov.au/feeds/majorIncidents.json";
         StringRequest request = new StringRequest(urlNTD, new Response.Listener<String>() {
             @Override
             public void onResponse(String string) {
-                listNTD = string;
+                listFires = string;
             }
         }, new Response.ErrorListener() {
             @Override
