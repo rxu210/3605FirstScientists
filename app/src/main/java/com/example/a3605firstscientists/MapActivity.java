@@ -80,12 +80,20 @@ public class MapActivity extends AppCompatActivity {
                                 .tilt(0)
                                 .build();
 
-                        mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 7000);
+                        mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 3000);
 
+                        // Add marker for user's current location
                         mapboxMap.addMarker(new MarkerOptions()
                         .position(new LatLng(com.example.a3605firstscientists.activities.Login.latitude,
                                 com.example.a3605firstscientists.activities.Login.longitude))
                         .title("Your location"));
+
+                        // Add markers for locations of posts
+                        for (int i = 0; i < Post.postLocations.size(); i++) {
+                            mapboxMap.addMarker(new MarkerOptions()
+                                    .position(Post.postLocations.get(i))
+                                    .title("A User posted here"));
+                        }
                     }
                 });
 

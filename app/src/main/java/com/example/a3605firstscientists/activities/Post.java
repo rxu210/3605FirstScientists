@@ -43,7 +43,6 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -74,6 +73,7 @@ import org.w3c.dom.Text;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +101,8 @@ public class Post extends AppCompatActivity {
     DatabaseReference databaseReference;
     List<Posting> postingList;
 
-
+    // Lists of locations where posts have been made to show on the Map
+    public static List<LatLng> postLocations = new ArrayList<LatLng>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -330,7 +331,9 @@ public class Post extends AppCompatActivity {
                                         currentUser.getUid(),
                                         currentUser.getPhotoUrl().toString());
                                 
-                                
+                                addLocation(com.example.a3605firstscientists.activities.Login.latitude,
+                                        com.example.a3605firstscientists.activities.Login.longitude);
+
                                 addPost(posting);
 
 
@@ -355,7 +358,7 @@ public class Post extends AppCompatActivity {
                 }
 
                 else {
-                    showMessage("Please verify all input fields and choose Post Image");
+                    showMessage("Please have a title, location, description and image");
 
                 }
 
@@ -394,5 +397,9 @@ public class Post extends AppCompatActivity {
         Toast.makeText(Post.this,message,Toast.LENGTH_LONG).show();
     }
 
+    // Method for adding a post's location to list of post locations
+    private void addLocation(double latitude, double longitude) {
+        postLocations.add(new LatLng(latitude, longitude));
+    }
 
 }
