@@ -52,7 +52,7 @@ public class MapActivity extends AppCompatActivity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
-                FeatureCollection featureCollection = FeatureCollection.fromJson(HomeActivity.listNTD);
+                FeatureCollection featureCollection = FeatureCollection.fromJson(HomeActivity.listFires);
 
                 mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/rxu210/ckr4g009y0f2b18mo7y4y4fic")
                         // Add the SymbolLayer icon image to the map style
