@@ -2,6 +2,7 @@ package com.example.a3605firstscientists;
 
 import android.content.Intent;
 import android.location.Address;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
@@ -11,10 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.a3605firstscientists.activities.Post;
+import com.example.a3605firstscientists.activities.PostDetail;
+import com.example.a3605firstscientists.activities.Posting;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -57,6 +63,18 @@ public class AddActivity extends AppCompatActivity {
                 onSubmit();
             }
         });
+
+        // Method for handling Back button
+        ImageButton btnLocation = findViewById(R.id.btn_locationback);
+        btnLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddActivity.this, Post.class);
+                intent.putExtra("From", "Add Activity");
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void onRadioButtonClicked(View view) {
@@ -119,6 +137,7 @@ public class AddActivity extends AppCompatActivity {
         // Make submit button visible after user has checked coordinates
         btnSubmit.setVisibility(View.VISIBLE);
     }
+
     // Method for saving user's manually submitted location
     public void onSubmit() {
         com.example.a3605firstscientists.activities.Login.latitude = tempLatitude;
