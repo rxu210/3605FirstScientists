@@ -52,7 +52,7 @@ public class MapActivity extends AppCompatActivity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
-                FeatureCollection featureCollection = FeatureCollection.fromJson(HomeActivity.listFires);
+                FeatureCollection featureCollection = FeatureCollection.fromJson(com.example.a3605firstscientists.activities.Login.listFires);
 
                 mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/rxu210/ckr4g009y0f2b18mo7y4y4fic")
                         // Add the SymbolLayer icon image to the map style
@@ -73,7 +73,8 @@ public class MapActivity extends AppCompatActivity {
 
                         // Map is set up and the style has loaded. Now you can add data or make other map adjustments
                         CameraPosition position = new CameraPosition.Builder()
-                                .target(new LatLng(HomeActivity.latitude, HomeActivity.longitude))
+                                .target(new LatLng(com.example.a3605firstscientists.activities.Login.latitude,
+                                        com.example.a3605firstscientists.activities.Login.longitude))
                                 .zoom(10)
                                 .bearing(0)
                                 .tilt(0)
@@ -82,7 +83,8 @@ public class MapActivity extends AppCompatActivity {
                         mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 7000);
 
                         mapboxMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(HomeActivity.latitude, HomeActivity.longitude))
+                        .position(new LatLng(com.example.a3605firstscientists.activities.Login.latitude,
+                                com.example.a3605firstscientists.activities.Login.longitude))
                         .title("Your location"));
                     }
                 });

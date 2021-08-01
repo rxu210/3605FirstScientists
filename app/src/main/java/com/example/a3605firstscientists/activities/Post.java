@@ -282,7 +282,7 @@ public class Post extends AppCompatActivity {
         popupPostImage = popAddPost.findViewById(R.id.popup_img);
         popupTitle = popAddPost.findViewById(R.id.popup_title);
         popupLocation = popAddPost.findViewById(R.id.tvPostLocation);
-        popupLocation.setText("Post location: " + HomeActivity.userAddress);
+        popupLocation.setText("Post location: " + com.example.a3605firstscientists.activities.Login.userAddress);
         popupDescription = popAddPost.findViewById(R.id.popup_description);
         popupAddBtn = popAddPost.findViewById(R.id.popup_add);
         popupEditBtn = popAddPost.findViewById(R.id.btnEdit);
@@ -322,7 +322,9 @@ public class Post extends AppCompatActivity {
 
 
                                 Posting posting = new Posting(popupTitle.getText().toString(),
-                                        HomeActivity.userAddress, HomeActivity.latitude, HomeActivity.longitude,
+                                        com.example.a3605firstscientists.activities.Login.userAddress,
+                                        com.example.a3605firstscientists.activities.Login.latitude,
+                                        com.example.a3605firstscientists.activities.Login.longitude,
                                         popupDescription.getText().toString(),
                                         imageDownloadLink,
                                         currentUser.getUid(),

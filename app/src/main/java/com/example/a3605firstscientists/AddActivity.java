@@ -71,6 +71,7 @@ public class AddActivity extends AppCompatActivity {
                     latitudeEdit.setEnabled(false);
                     addressEdit.setEnabled(true);
                     addressEdit.requestFocus();
+
                 }
                 break;
             case R.id.radioLocation:
@@ -120,9 +121,9 @@ public class AddActivity extends AppCompatActivity {
     }
     // Method for saving user's manually submitted location
     public void onSubmit() {
-        HomeActivity.latitude = tempLatitude;
-        HomeActivity.longitude = tempLongitude;
-        HomeActivity.userAddress = tempAddress;
+        com.example.a3605firstscientists.activities.Login.latitude = tempLatitude;
+        com.example.a3605firstscientists.activities.Login.longitude = tempLongitude;
+        com.example.a3605firstscientists.activities.Login.userAddress = tempAddress;
         Intent intent = new Intent(AddActivity.this, com.example.a3605firstscientists.activities.Post.class);
         intent.putExtra("from", "AddActivity");
         startActivity(intent);

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class LocationActivity extends AppCompatActivity {
 
     TextView tvLocation, tvCoordinates;
@@ -18,13 +19,13 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        // Update TextViews to display user's location, retrieved in HomeActivity
+        // Update TextViews to display user's location, retrieved in Login
         tvLocation = (findViewById(R.id.tvLocation));
-        tvLocation.setText("Current suburb: " + HomeActivity.userAddress);
+        tvLocation.setText("Current suburb: " + com.example.a3605firstscientists.activities.Login.userAddress);
 
         tvCoordinates = (findViewById(R.id.tvCoordinates));
-        tvCoordinates.setText("Current coordinates: " + HomeActivity.latitude
-         + " by " + HomeActivity.longitude);
+        tvCoordinates.setText("Current coordinates: " + com.example.a3605firstscientists.activities.Login.latitude
+         + " by " + com.example.a3605firstscientists.activities.Login.longitude);
 
         // Method for handling No button to manually add new location
         btnNo = (findViewById(R.id.btnNo));
