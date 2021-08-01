@@ -101,7 +101,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Register.this, Login.class);
-                intent.putExtra("From", "Donate");
+                intent.putExtra("From", "Register");
                 startActivity(intent);
             }
         });
@@ -132,7 +132,9 @@ public class Register extends AppCompatActivity {
 
                 else{
                     CreateUserAccount (email,name,password);
-
+                    Intent intent = new Intent(Register.this, Post.class);
+                    intent.putExtra("From", "Register");
+                    startActivity(intent);
                 }
 
             }
