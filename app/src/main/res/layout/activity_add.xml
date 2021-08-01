@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <ImageButton
+        android:id="@+id/btn_locationback"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_white_back" />
+
     <EditText
         android:id="@+id/latitudeEdit"
         android:layout_width="0dp"
@@ -92,6 +103,7 @@
         android:id="@+id/infoText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/actionButton" />
@@ -100,12 +112,12 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="@+id/actionButton"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/actionButton"
-        app:layout_constraintTop_toTopOf="@+id/infoText" />
+        app:layout_constraintTop_toBottomOf="@+id/infoText" />
 
     <TextView
         android:id="@+id/textView3"
