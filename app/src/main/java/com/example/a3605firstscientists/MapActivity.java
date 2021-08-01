@@ -92,7 +92,7 @@ public class MapActivity extends AppCompatActivity {
                         for (int i = 0; i < Post.postLocations.size(); i++) {
                             mapboxMap.addMarker(new MarkerOptions()
                                     .position(Post.postLocations.get(i))
-                                    .title("A User posted here"));
+                                    .title(Post.titleList.get(i)));
                         }
                     }
                 });

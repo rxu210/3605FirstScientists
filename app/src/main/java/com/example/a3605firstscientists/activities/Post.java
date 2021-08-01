@@ -84,6 +84,7 @@ public class Post extends AppCompatActivity {
     private static final int PReqCode = 2;
     private static final int REQUESCODE = 2;
 
+
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
@@ -102,6 +103,7 @@ public class Post extends AppCompatActivity {
 
     // Lists of locations where posts have been made to show on the Map
     public static List<LatLng> postLocations = new ArrayList<LatLng>();
+    public static List<String> titleList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,14 +183,15 @@ public class Post extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 postingList = new ArrayList<>();
-
                 for (DataSnapshot postsnap: snapshot.getChildren()){
 
 
                     Posting post = postsnap.getValue(Posting.class);
                     postingList.add(post);
 
-
+                    // Add coordinates and title to list
+                    postLocations.add(new LatLng(post.getLatitude(), post.getLongitude()));
+                    titleList.add(post.getTitle());
 
                 }
 
@@ -329,9 +332,7 @@ public class Post extends AppCompatActivity {
                                         imageDownloadLink,
                                         currentUser.getUid(),
                                         currentUser.getPhotoUrl().toString());
-                                
-                                addLocation(com.example.a3605firstscientists.activities.Login.latitude,
-                                        com.example.a3605firstscientists.activities.Login.longitude);
+
 
                                 addPost(posting);
 
@@ -394,11 +395,6 @@ public class Post extends AppCompatActivity {
     private void showMessage(String message) {
 
         Toast.makeText(Post.this,message,Toast.LENGTH_LONG).show();
-    }
-
-    // Method for adding a post's location to list of post locations
-    private void addLocation(double latitude, double longitude) {
-        postLocations.add(new LatLng(latitude, longitude));
     }
 
 }

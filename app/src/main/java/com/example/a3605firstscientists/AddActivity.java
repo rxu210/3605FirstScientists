@@ -89,7 +89,6 @@ public class AddActivity extends AppCompatActivity {
                     latitudeEdit.setEnabled(false);
                     addressEdit.setEnabled(true);
                     addressEdit.requestFocus();
-
                 }
                 break;
             case R.id.radioLocation:
