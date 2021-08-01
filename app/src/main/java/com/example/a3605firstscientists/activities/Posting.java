@@ -9,6 +9,8 @@ public class Posting {
     private String postKey;
     private String title;
     private String location;
+    private double latitude;
+    private double longitude;
     private String description;
     private String picture;
     private String userId;
@@ -16,9 +18,11 @@ public class Posting {
     private Object timeStamp;
 
 
-    public Posting(String title, String location, String description, String picture, String userId, String userPhoto) {
+    public Posting(String title, String location, double latitude, double longitude, String description, String picture, String userId, String userPhoto) {
         this.title = title;
         this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.description = description;
         this.picture = picture;
         this.userId = userId;
@@ -44,7 +48,13 @@ public class Posting {
         return title;
     }
 
-    public String getLocation() {return location;}
+    public String getLocation() {
+        return location;
+    }
+
+    public double getLatitude() {return latitude;}
+
+    public double getLongitude() {return longitude;}
 
     public String getDescription() {
         return description;
@@ -70,7 +80,13 @@ public class Posting {
         this.title = title;
     }
 
-    public void setLocation(String location){this.location = location;}
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setLatitude(double latitude){this.latitude = latitude;}
+
+    public void setLongitude(double longitude){this.longitude = longitude;}
 
     public void setDescription(String description) {
         this.description = description;

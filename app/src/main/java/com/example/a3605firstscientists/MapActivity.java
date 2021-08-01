@@ -36,6 +36,7 @@ public class MapActivity extends AppCompatActivity {
     private static final String ICON_ID = "ICON_ID";
     private static final String LAYER_ID = "LAYER_ID";
 
+
     private MapView mapView;
 
     @Override

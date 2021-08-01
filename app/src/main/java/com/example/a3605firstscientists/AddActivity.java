@@ -123,7 +123,7 @@ public class AddActivity extends AppCompatActivity {
         HomeActivity.latitude = tempLatitude;
         HomeActivity.longitude = tempLongitude;
         HomeActivity.userAddress = tempAddress;
-        Intent intent = new Intent(AddActivity.this, MapActivity.class);
+        Intent intent = new Intent(AddActivity.this, com.example.a3605firstscientists.activities.Post.class);
         intent.putExtra("from", "AddActivity");
         startActivity(intent);
     }

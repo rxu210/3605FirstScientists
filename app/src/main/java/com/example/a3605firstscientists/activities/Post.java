@@ -90,6 +90,7 @@ public class Post extends AppCompatActivity {
     Dialog popAddPost;
 
     ImageView popupUserImage, popupPostImage,popupAddBtn;
+    Button popupEditBtn;
     TextView popupTitle, popupLocation, popupDescription;
     private Uri pickedImgUri = null;
 
@@ -141,7 +142,7 @@ public class Post extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
 
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(2);
+        MenuItem menuItem = menu.getItem(3);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -280,12 +281,23 @@ public class Post extends AppCompatActivity {
         popupUserImage = popAddPost.findViewById(R.id.popup_user_image);
         popupPostImage = popAddPost.findViewById(R.id.popup_img);
         popupTitle = popAddPost.findViewById(R.id.popup_title);
-        popupLocation = popAddPost.findViewById(R.id.popup_location);
+        popupLocation = popAddPost.findViewById(R.id.tvPostLocation);
+        popupLocation.setText("Post location: " + HomeActivity.userAddress);
         popupDescription = popAddPost.findViewById(R.id.popup_description);
         popupAddBtn = popAddPost.findViewById(R.id.popup_add);
+        popupEditBtn = popAddPost.findViewById(R.id.btnEdit);
 
         Glide.with(Post.this).load(currentUser.getPhotoUrl()).into(popupUserImage);
 
+        popupEditBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Post.this, com.example.a3605firstscientists.AddActivity.class);
+                intent.putExtra("from", "add Post");
+                startActivity(intent);
+            }
+        });
 
         popupAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -310,7 +322,7 @@ public class Post extends AppCompatActivity {
 
 
                                 Posting posting = new Posting(popupTitle.getText().toString(),
-                                        popupLocation.getText().toString(),
+                                        HomeActivity.userAddress, HomeActivity.latitude, HomeActivity.longitude,
                                         popupDescription.getText().toString(),
                                         imageDownloadLink,
                                         currentUser.getUid(),
