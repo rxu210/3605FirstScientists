@@ -102,9 +102,7 @@ public class Register extends AppCompatActivity {
 
                 else{
                     CreateUserAccount (email,name,password);
-                    Intent intent = new Intent(Register.this, Post.class);
-                    intent.putExtra("From", "Register");
-                    startActivity(intent);
+
                 }
 
             }
