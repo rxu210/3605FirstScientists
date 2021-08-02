@@ -54,7 +54,7 @@
         android:ems="10"
         android:gravity="top"
         android:hint="Insert Description"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textMultiLine"
         android:padding="5dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -121,9 +121,7 @@
         android:layout_height="wrap_content"
         android:text="Edit"
         app:layout_constraintBottom_toTopOf="@+id/popup_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/popup_title"
         app:layout_constraintTop_toBottomOf="@+id/popup_title"
         app:layout_constraintVertical_bias="1.0" />
 
