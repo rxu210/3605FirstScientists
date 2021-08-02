@@ -54,7 +54,7 @@
         android:ems="10"
         android:gravity="top"
         android:hint="Insert Description"
-        android:inputType="textPersonName|textMultiLine"
+        android:inputType="textMultiLine"
         android:padding="5dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

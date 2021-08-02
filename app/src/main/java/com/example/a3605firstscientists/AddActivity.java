@@ -1,5 +1,6 @@
 package com.example.a3605firstscientists;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.location.Address;
 import android.media.Image;
@@ -139,12 +140,20 @@ public class AddActivity extends AppCompatActivity {
 
     // Method for saving user's manually submitted location
     public void onSubmit() {
+        /*
         com.example.a3605firstscientists.activities.Login.latitude = tempLatitude;
         com.example.a3605firstscientists.activities.Login.longitude = tempLongitude;
         com.example.a3605firstscientists.activities.Login.userAddress = tempAddress;
         Intent intent = new Intent(AddActivity.this, com.example.a3605firstscientists.activities.Post.class);
         intent.putExtra("from", "AddActivity");
         startActivity(intent);
+        */
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("postAddress", tempAddress);
+        returnIntent.putExtra("postLatitude", tempLatitude);
+        returnIntent.putExtra("postLongitude", tempLongitude);
+        setResult(Activity.RESULT_OK, returnIntent);
+        finish();
     }
 
     class AddressResultReceiver extends ResultReceiver {

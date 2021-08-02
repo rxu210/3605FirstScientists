@@ -2,16 +2,21 @@ package com.example.a3605firstscientists;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.a3605firstscientists.activities.Login;
 import com.example.a3605firstscientists.activities.Post;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.Icon;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -70,11 +75,15 @@ public class MapActivity extends AppCompatActivity {
                         ), new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
+                        // Custom marker for post locations
+                        IconFactory iconFactory = IconFactory.getInstance(MapActivity.this);
+                        Icon siteIcon = iconFactory.fromResource(R.drawable.siteicon);
+                        Icon manIcon = iconFactory.fromResource(R.drawable.manicon);
 
                         // Map is set up and the style has loaded. Now you can add data or make other map adjustments
                         CameraPosition position = new CameraPosition.Builder()
-                                .target(new LatLng(com.example.a3605firstscientists.activities.Login.latitude,
-                                        com.example.a3605firstscientists.activities.Login.longitude))
+                                .target(new LatLng(Login.latitude,
+                                        Login.longitude))
                                 .zoom(10)
                                 .bearing(0)
                                 .tilt(0)
@@ -84,15 +93,17 @@ public class MapActivity extends AppCompatActivity {
 
                         // Add marker for user's current location
                         mapboxMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(com.example.a3605firstscientists.activities.Login.latitude,
-                                com.example.a3605firstscientists.activities.Login.longitude))
-                        .title("Your location"));
+                        .position(new LatLng(Login.latitude,
+                                Login.longitude))
+                        .title("Your location")
+                        .icon(manIcon));
 
                         // Add markers for locations of posts
                         for (int i = 0; i < Post.postLocations.size(); i++) {
                             mapboxMap.addMarker(new MarkerOptions()
                                     .position(Post.postLocations.get(i))
-                                    .title(Post.titleList.get(i)));
+                                    .title(Post.titleList.get(i))
+                                    .icon(siteIcon));
                         }
                     }
                 });

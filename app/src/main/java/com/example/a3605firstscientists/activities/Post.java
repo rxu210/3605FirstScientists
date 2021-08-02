@@ -101,6 +101,11 @@ public class Post extends AppCompatActivity {
     DatabaseReference databaseReference;
     List<Posting> postingList;
 
+    // Variables for post location, initialised with user's current coordinates
+    double postLatitude = Login.latitude;
+    double postLongitude = Login.longitude;
+    String postAddress = Login.userAddress;
+
     // Lists of locations where posts have been made to show on the Map
     public static List<LatLng> postLocations = new ArrayList<LatLng>();
     public static List<String> titleList = new ArrayList<String>();
@@ -269,6 +274,13 @@ public class Post extends AppCompatActivity {
 
 
         }
+        else if (resultCode == RESULT_OK && requestCode == 1 && data != null) {
+            postAddress = data.getStringExtra("postAddress");
+            postLatitude = data.getDoubleExtra("postLatitude", Login.latitude);
+            postLongitude = data.getDoubleExtra("postLongitude", Login.longitude);
+
+            popupLocation.setText("Post Location: " + postAddress);
+        }
 
     }
 
@@ -285,7 +297,7 @@ public class Post extends AppCompatActivity {
         popupPostImage = popAddPost.findViewById(R.id.popup_img);
         popupTitle = popAddPost.findViewById(R.id.popup_title);
         popupLocation = popAddPost.findViewById(R.id.tvPostLocation);
-        popupLocation.setText("Post location: " + com.example.a3605firstscientists.activities.Login.userAddress);
+        popupLocation.setText("Post location: " + postAddress);
         popupDescription = popAddPost.findViewById(R.id.popup_description);
         popupAddBtn = popAddPost.findViewById(R.id.popup_add);
         popupEditBtn = popAddPost.findViewById(R.id.btnEdit);
@@ -296,10 +308,14 @@ public class Post extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                int GET_POST_LOCATION = 1;
                 Intent intent = new Intent(Post.this, com.example.a3605firstscientists.AddActivity.class);
                 intent.putExtra("from", "add Post");
-                startActivity(intent);
+                startActivityForResult(intent, GET_POST_LOCATION);
+
+
             }
+
         });
 
         popupAddBtn.setOnClickListener(new View.OnClickListener() {
@@ -325,9 +341,7 @@ public class Post extends AppCompatActivity {
 
 
                                 Posting posting = new Posting(popupTitle.getText().toString(),
-                                        com.example.a3605firstscientists.activities.Login.userAddress,
-                                        com.example.a3605firstscientists.activities.Login.latitude,
-                                        com.example.a3605firstscientists.activities.Login.longitude,
+                                        postAddress, postLatitude, postLongitude,
                                         popupDescription.getText().toString(),
                                         imageDownloadLink,
                                         currentUser.getUid(),
