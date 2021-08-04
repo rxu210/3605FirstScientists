@@ -124,13 +124,15 @@
         android:id="@+id/tv_rmsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
+        android:layout_marginStart="124dp"
         android:layout_marginTop="15dp"
         android:text="Already a member?"
         android:textColor="@color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintVertical_bias="0.067" />
 
     <TextView
         android:id="@+id/tv_login"
@@ -141,8 +143,12 @@
         android:text="Sign In"
         android:textColor="@color/red"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toEndOf="@+id/tv_rmsg"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintVertical_bias="0.067" />
 
     <ImageView
         android:id="@+id/iv_picture"
