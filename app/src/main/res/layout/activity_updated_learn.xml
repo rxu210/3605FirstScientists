@@ -48,12 +48,16 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cardList"
-            android:layout_width="match_parent"
-            android:layout_height="530dp"
+            android:layout_width="412dp"
+            android:layout_height="583dp"
             android:background="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+        <!--Tahmin: if you use this exact same RecyclerView, it should work in the Stories screen too-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
